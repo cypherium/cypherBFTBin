@@ -162,8 +162,8 @@ Stop the to find candidate to take part in consensus.
 
 Current version for user
 ---
-Current Version: 0.1<br>
-ChainId: 16100<br>
+Current Version: 0.2<br>
+ChainId: 16162<br>
 Update: <br>
 User needs to do:```git pull``` ```./resetStart.sh```
 
