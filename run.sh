@@ -1,5 +1,5 @@
 #!/bin/bash
-BOOTDIR="./bootnode.log"
+BOOTDIR="./bootnode.txt"
 GENESISDIR="./genesis.json"
 LOGLEVEL=4
 bootnode_addr=cnode://"$(grep cnode $BOOTDIR|tail -n 1|awk -F '://' '{print $2}')"

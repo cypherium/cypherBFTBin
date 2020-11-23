@@ -6,7 +6,7 @@ Cypherium is compatible with Mac, Windows, and Linux operating system.
 Public iP for VPS is needed
 --
 Your ip of your machine or VPS which used to deploy cypher node  must be `public IP`.such AWS ec2 which has `public IP` to deploy your cypher node!
-Please open 8000,6000,9090,7100 ports for UDP and TCP rule for VPS.`
+Please open 18004,6000,9090,7100 ports for UDP and TCP rule for VPS.`
 
 Install the openssl
 --
