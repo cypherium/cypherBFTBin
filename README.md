@@ -61,11 +61,11 @@ Download repository
  We suggest you run the script under root account of computer
  for console detail print mode you should run this:
  ```
- sudo ./start.sh --detail
+ sudo ./resetStart.sh --detail
  ```
  or  for silent mode ,you should run this
  ```
- sudo ./start.sh
+ sudo ./resetStart.sh
  ```
  now the log is output to the `cypherlog.txt` file,you can check  the dynamic log.
 Congratulations! You have successfully started the Cypherium Node!
