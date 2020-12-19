@@ -54,11 +54,10 @@ Download repository
    ```./resetStart.sh --silent```or ```./start.sh 0```:reset start cypher application and output the log to the cypherlog.txt<br>
    ```./resetStart.sh --detail```or ```./start.sh 1```:reset start cypher application and print the log online<br>
 
- Run the cypher
+ Two method to run the cypher
  ---
 
- #### init database
- We suggest you run the script under root account of computer
+ #### run from genesis block 0 by script
  for console detail print mode you should run this:
  ```
  sudo ./resetStart.sh --detail
@@ -70,6 +69,26 @@ Download repository
  now the log is output to the `cypherlog.txt` file,you can check  the dynamic log.
 Congratulations! You have successfully started the Cypherium Node!
 
+ #### run from genesis block 0 step by step
+   #####init genesis block
+    ######for linux
+    ```
+    ./linux/cypher --datadir ./linux/chaindb init ./genesis.json
+     ```
+    ######for mac
+    ```
+    ./mac/cypher --datadir ./mac/chaindb init ./genesis.json
+    ```
+   #####start
+   
+     ######for linux
+     ```
+     ./linux/cypher --nat "none" --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner --port 6000 --rpcport 18004 --verbosity 4 --datadir ./linux/chaindb --networkid 16162 --gcmode archive --bootnodes "cnode://098c1149a1476cf44ad9d480baa67d956715b8671a4915bed17d06a1cafd7b154bc1841d451d80d391427ebc48aaa3216d4e8a2b46544dffdc61b76be6475418@13.72.80.40:9090"  console 2>"cypherlog.txt"
+     ```
+     ######for mac
+     ```
+     ./mac/cypher --nat "none" --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner --port 6000 --rpcport 18004 --verbosity 4 --datadir ./mac/chaindb --networkid 16162 --gcmode archive --bootnodes "cnode://098c1149a1476cf44ad9d480baa67d956715b8671a4915bed17d06a1cafd7b154bc1841d451d80d391427ebc48aaa3216d4e8a2b46544dffdc61b76be6475418@13.72.80.40:9090"  console 2>"cypherlog.txt"
+       ```
 Troubleshooting
 ---
    #### If you get `panic: not exists jdk class!` crash
