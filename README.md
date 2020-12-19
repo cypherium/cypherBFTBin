@@ -72,12 +72,12 @@ Congratulations! You have successfully started the Cypherium Node!
  #### run from genesis block 0 step by step
    * init genesis block
    
-    ```for linux
-    ./linux/cypher --datadir ./linux/chaindb init ./genesis.json
+     ```for linux
+     ./linux/cypher --datadir ./linux/chaindb init ./genesis.json
      ```
-    ```for mac
-    ./mac/cypher --datadir ./mac/chaindb init ./genesis.json
-    ```
+     ```for mac
+     ./mac/cypher --datadir ./mac/chaindb init ./genesis.json
+     ```
    * start
 
      ```for linux
