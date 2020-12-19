@@ -70,22 +70,22 @@ Download repository
 Congratulations! You have successfully started the Cypherium Node!
 
  #### run from genesis block 0 step by step
-   #####init genesis block
-    ######for linux
+   * init genesis block
+    *  for linux
     ```
     ./linux/cypher --datadir ./linux/chaindb init ./genesis.json
      ```
-    ######for mac
+    *  for mac
     ```
     ./mac/cypher --datadir ./mac/chaindb init ./genesis.json
     ```
-   #####start
+    * start
    
-     ######for linux
+     *  for linux
      ```
      ./linux/cypher --nat "none" --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner --port 6000 --rpcport 18004 --verbosity 4 --datadir ./linux/chaindb --networkid 16162 --gcmode archive --bootnodes "cnode://098c1149a1476cf44ad9d480baa67d956715b8671a4915bed17d06a1cafd7b154bc1841d451d80d391427ebc48aaa3216d4e8a2b46544dffdc61b76be6475418@13.72.80.40:9090"  console 2>"cypherlog.txt"
      ```
-     ######for mac
+     *  for mac
      ```
      ./mac/cypher --nat "none" --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner --port 6000 --rpcport 18004 --verbosity 4 --datadir ./mac/chaindb --networkid 16162 --gcmode archive --bootnodes "cnode://098c1149a1476cf44ad9d480baa67d956715b8671a4915bed17d06a1cafd7b154bc1841d451d80d391427ebc48aaa3216d4e8a2b46544dffdc61b76be6475418@13.72.80.40:9090"  console 2>"cypherlog.txt"
        ```
