@@ -6,8 +6,8 @@ PRMV=1
 bootnode_addr=cnode://"$(grep cnode $BOOTDIR|tail -n 1|awk -F '://' '{print $2}')"
 
 IPENCDISVALUE=1
-CLIDETAILMODE="--detail"
-CLISILENTMODE="--silent"
+CONSOLEMODE="--console"
+BACKENDMODE="--backend"
 CLIMODE=$CLISILENTMODE
 
 if [[ "$1" != "" ]];then
@@ -49,7 +49,7 @@ NetWorkId=`echo $NetWorkId | cut -d \, -f 1`
 echo "bootnode address: " $bootnode_addr
 echo "Client print mode:$CLIMODE,please wait for some seconds!"
 if [[ "$CLIMODE" == "$CLISILENTMODE" || "$CLIMODE" == "0" || "$CLIMODE" == " " ]];then
-   $BINDIR --nat "none" --powrangemode $PRMV --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner,txpool --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir $CHAINDB --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr  console 2>"cypherlog.txt"
+   nohup $BINDIR --nat "none" --ws  --powrangemode $PRMV -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner,txpool --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir $CHAINDB --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr   > cypherlog.txt 2>&1 &
 else
    $BINDIR --nat "none" --ws  --powrangemode $PRMV -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner,txpool --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir $CHAINDB --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr console
 
