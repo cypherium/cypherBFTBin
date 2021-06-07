@@ -1,0 +1,97 @@
+{
+  "config": {
+    "chainId": 12123,
+    "committee":{
+      "0": {
+        "address": "40.112.63.247:7100",
+        "coinbase": "17ddea1b168c158eae126d975c2d1ed273217670",
+        "public": "2e0d950ba9b928a8f6a2c8824d2b52690853d5b45e11e1cceced4c71cae6be12d56d8b8d4f5cc8a31de373bedec80353f4223979ff416ae2e75852bbfd20e993"
+      },
+      "1": {
+        "address": "40.117.113.157:7100",
+        "coinbase": "c64ff3ca1024421a93f68521f84c0436e8712c88",
+        "public": "d69df461ba2fa1960669aa8f8e03476f03274456899bc090a7d496c57af2c321082eff895c6b81fb28f84d95e74d7bad6a244479a248e230a62378f781f85b89"
+      },
+      "2": {
+        "address": "52.188.169.190:7100",
+        "coinbase": "351e5d6acae70a86030aa504289f5e6ca736b7fc",
+        "public": "8756b4e0868e2ef0c1e5f4592e44b90bc589fcd076810ee8061e15c87ddfcd05c66452a37f1513286ab0959bb3eb269190083f6c013b01e30eab016daf969b04"
+      },
+      "3": {
+        "address": "13.66.210.189:7100",
+        "coinbase": "707d4d7f254b3ce8c8d52c0f3a8da3b17d32665b",
+        "public": "00a159bd2782e13d96083252d541fb9fd1bce5743ede67b0cd1cdd333c0652238d4b70a981d1fe8c03a3a18471aef4cf9a21d1c95571ccfe25062db891e1f78e"
+      },
+      "4": {
+        "address": "52.183.94.114:7100",
+        "coinbase": "99ba54ebd324bdfa84fb37429e230ea477c2d4cf",
+        "public": "d2772f2d37d96449739e7fa0eb5d9f3124e81fdb151adaa40932bb481203a91ba361c7260f98855c81b65c3508949a99a6f888fb9b5f70b73869da61b338c28b"
+      },
+      "5": {
+        "address": "20.185.177.95:7100",
+        "coinbase": "b8c3c176d030c2a252f9be2bfb66ae2b7f128fe0",
+        "public": "9dae6ece534cef5e7a92780c1843311e4408954397d87f5082836c667544ca1e8f16f1248ed1f9af2e3df576cba0abe754759af79a4fee35f3860f711e58bd92"
+      },
+      "6": {
+        "address": "13.90.89.240:7100",
+        "coinbase": "36ee2e451d6c7be1c254e467946b2cec15a5c05c",
+        "public": "1467e29585b5e7fb472521a5736f1835d9394e0d8616c42bc55793b8dad61f0e9fa99c9a7a0bd9855e2353ae80834751f3f890bc902be013f593eef87dbc6a80"
+      },
+      "7": {
+        "address": "13.92.234.7:7100",
+        "coinbase": "e7f20a09340a0af32f4a78cd1e8ace70b3b2333d",
+        "public": "6a720fa701666053103da800669381bb4140ffdc45c7f8c613d48743c077b40d3a1fd75c1a6ec28e2b12f4ac281df3bd3ca569b09c5a692aaabb49471c806711"
+      },
+      "8": {
+        "address": "52.168.18.107:7100",
+        "coinbase": "9f5c4083f1d1311aa6639d1383f30c6228bad2ec",
+        "public": "ef73eee172404a8284c1d312b39535eddd6e87ffe69e7e3a616cd4813b9a76053d86dfc5b06efeb7995ffcd7add76364eda5357c146aa6c975d144cd3b24e684"
+      },
+      "9": {
+        "address": "13.82.132.217:7100",
+        "coinbase": "ba9fa9a9dd3e51d3c6ddc9546be87627fc7a4bdf",
+        "public": "9b1e3778c15bac3f610a95326b6ed9038f0e94083a6002ff81368db66f2ba102766f2441c667f33ee42740467771002421cf4616f9a126353064b6283d549820"
+      }
+
+    }
+  },
+  "alloc": {
+    "17ddea1b168c158eae126d975c2d1ed273217670": {
+      "balance": "2000000000000000000000000000"
+    },
+    "84f43abebb1a7458aba81d413beeeba962d58339": {
+      "balance": "2000000000000000000000000000"
+    },
+    "c64ff3ca1024421a93f68521f84c0436e8712c88": {
+      "balance": "2000000000000000000000000000"
+    },
+    "f15f9f4f24dbe7720a73b85119bd629621a613b6": {
+      "balance": "2000000000000000000000000000"
+    },
+    "351e5d6acae70a86030aa504289f5e6ca736b7fc": {
+      "balance": "2000000000000000000000000000"
+    },
+    "11191a15390a06d2d70a862e042670a6a71f2c0d": {
+      "balance": "2000000000000000000000000000"
+    },
+    "707d4d7f254b3ce8c8d52c0f3a8da3b17d32665b": {
+      "balance": "2000000000000000000000000000"
+    },
+    "714fd656b4ba2f0bff3ddcc1d129d8e2c149bb11": {
+      "balance": "2000000000000000000000000000"
+    },
+    "99ba54ebd324bdfa84fb37429e230ea477c2d4cf": {
+      "balance": "2000000000000000000000000000"
+    },
+    "1e80a4f80a91c26818e4ee0067045238425c88a4": {
+      "balance": "2000000000000000000000000000"
+    }
+  },
+  "difficulty" : "0x5ff00",
+  "gasLimit"   : "0x1cfcfce",
+  "nonce"      : "0x0671e756997186e2",
+  "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000002",
+  "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp"  : "0x5f9cb83e",
+  "extraData"  : ""
+}
