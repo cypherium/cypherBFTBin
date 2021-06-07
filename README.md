@@ -6,7 +6,8 @@ Cypherium is compatible with Mac, Windows, and Linux operating system.
 Public iP for VPS is needed
 --
 Your ip of your machine or VPS which used to deploy cypher node  must be `public IP`.such AWS ec2 which has `public IP` to deploy your cypher node!
-Please open 18004,6000,9090,7100 ports for UDP and TCP rule for VPS.`
+Open Consensus port `7100` (TCP), P2P block synchronous port `6000`(TCP and UDP), RPC port `18004` (TCP). The P2P port and RPC port can be any port that is not occupied by the system.
+If no `POST, CURL, GET` or other RPC requests are sent to this node, the RPC port should be closed to prevent possible network attacks.
 
 Install the openssl
 --
@@ -27,7 +28,6 @@ openssl version
  ```
 Download repository
 ---
- We suggest you switch your computer account to root account
  #### 1. Install Git:
    for linux,run follow command:
     ```
@@ -60,13 +60,14 @@ Download repository
  #### run from genesis block 0 by script
  for console detail print mode you should run this:
  ```
- sudo ./resetStart.sh --detail
+  ./resetStart.sh --detail
  ```
  or  for silent mode ,you should run this
  ```
- sudo ./resetStart.sh
+  ./resetStart.sh
  ```
- now the log is output to the `cypherlog.txt` file,you can check  the dynamic log.
+ If you want to run testNet,please append  `test` to the command,such as `/resetStart.sh 1 test`
+After doing this,now the log is output to the `cypherlog.txt` file or console immediately,you can check  the dynamic log.
 Congratulations! You have successfully started the Cypherium Node!
 
  #### run from genesis block 0 step by step
@@ -81,11 +82,11 @@ Congratulations! You have successfully started the Cypherium Node!
    * start
 
      ```for linux
-     ./linux/cypher --nat "none" --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner --port 6000 --rpcport 18004 --verbosity 4 --datadir ./linux/chaindb --networkid 16162 --gcmode archive --bootnodes "cnode://098c1149a1476cf44ad9d480baa67d956715b8671a4915bed17d06a1cafd7b154bc1841d451d80d391427ebc48aaa3216d4e8a2b46544dffdc61b76be6475418@13.72.80.40:9090"  console 2>"cypherlog.txt"
+     ./linux/cypher --nat "none" --ws  txpool --rnetport 7100 -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner --port 6000 --rpcport 18004 --verbosity 4 --datadir ./linux/chaindb --networkid 16162 --gcmode archive --bootnodes "cnode://098c1149a1476cf44ad9d480baa67d956715b8671a4915bed17d06a1cafd7b154bc1841d451d80d391427ebc48aaa3216d4e8a2b46544dffdc61b76be6475418@13.72.80.40:9090"  console 2>"cypherlog.txt"
      ```
       
      ```for mac
-     ./mac/cypher --nat "none" --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner --port 6000 --rpcport 18004 --verbosity 4 --datadir ./mac/chaindb --networkid 16162 --gcmode archive --bootnodes "cnode://098c1149a1476cf44ad9d480baa67d956715b8671a4915bed17d06a1cafd7b154bc1841d451d80d391427ebc48aaa3216d4e8a2b46544dffdc61b76be6475418@13.72.80.40:9090"  console 2>"cypherlog.txt"
+     ./mac/cypher --nat "none" txpool --rnetport 7100 --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner --port 6000 --rpcport 18004 --verbosity 4 --datadir ./mac/chaindb --networkid 16162 --gcmode archive --bootnodes "cnode://098c1149a1476cf44ad9d480baa67d956715b8671a4915bed17d06a1cafd7b154bc1841d451d80d391427ebc48aaa3216d4e8a2b46544dffdc61b76be6475418@13.72.80.40:9090"  console 2>"cypherlog.txt"
        ```
 Troubleshooting
 ---
@@ -177,11 +178,8 @@ you can check miner’s candidate from yourself and other nodes.
 #### 4.miner.stop()
 Stop the to find candidate to take part in consensus.
 
-Current version for user
+FAQ
 ---
-Current Version: 0.2<br>
-ChainId: 16162<br>
-Update: <br>
-User needs to do:```git pull``` ```./resetStart.sh```
+
 
 
