@@ -51,11 +51,13 @@ fi
 killall -9 cypher
 NetWorkId=`less genesis.json|awk -F "[:]" '/chainId/{print $2}'`
 NetWorkId=`echo $NetWorkId | cut -d \, -f 1`
-echo "bootnode address: " $bootnode_addr
+ip=`curl icanhazip.com`
+echo "bootnode address: $bootnode_addr"
 echo "Client print mode:$CLIMODE,please wait for some seconds!"
 if [[ "$CLIMODE" == "$CLISILENTMODE" || "$CLIMODE" == "0" || "$CLIMODE" == " " ]];then
-   nohup $BINDIR --nat "none" --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3c,personal,miner,txpool --rnetport 7100 --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir $CHAINDB --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr   > $OUTPUTLOG 2>&1 &
+   nohup $BINDIR --nat=extip:$ip --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3c,personal,miner,txpool --rnetport 7100 --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir "$CHAINDB" --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr   > "$OUTPUTLOG" 2>&1 &
 else
-   $BINDIR --nat "none" --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3c,personal,miner,txpool --rnetport 7100 --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir $CHAINDB --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr console
-
+   #$BINDIR -nat=extip:$ip --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3c,personal,miner,txpool --rnetport 7100 --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir "$CHAINDB" --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr console
+   $BINDIR  --rnetport 7100  --nat=extip:$ip  --ws   -wsaddr="0.0.0.0" --wsorigins "*" --tps --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner,txpool --port 16000  --rpcport 18000 --verbosity "$LOGLEVEL" --datadir "$CHAINDB" --networkid $NetWorkId --gcmode archive --bootnodes "$bootnode_addr" console
 fi
+
