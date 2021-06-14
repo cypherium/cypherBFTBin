@@ -39,25 +39,32 @@ ostype()
 ostype
 CHAINDB="./$OSTYPE/chaindb"
 BINDIR="./$OSTYPE/cypher"
+RNET_PORT=7100
+P2P_PORT=6000
+RPC_PORT=8000
 select=$2
 if [[ "$select" == "test" ]];then
         BINDIR="./$OSTYPE/cyphertest"
         CHAINDB="./$OSTYPE/chaindbtest"
         OUTPUTLOG="cypherlogtest.txt"
+        RNET_PORT=7100
+        P2P_PORT=6002
+        RPC_PORT=8002
 fi
 
-#echo "CHAINDB $CHAINDB"
-#echo "BINDIR $BINDIR"
+echo "CHAINDB $CHAINDB"
+echo "BINDIR $BINDIR"
 killall -9 cypher
+killall -9 cyphertest
 NetWorkId=`less genesis.json|awk -F "[:]" '/chainId/{print $2}'`
 NetWorkId=`echo $NetWorkId | cut -d \, -f 1`
 ip=`curl icanhazip.com`
+echo "ip: $ip"
 echo "bootnode address: $bootnode_addr"
 echo "Client print mode:$CLIMODE,please wait for some seconds!"
 if [[ "$CLIMODE" == "$CLISILENTMODE" || "$CLIMODE" == "0" || "$CLIMODE" == " " ]];then
-   nohup $BINDIR --nat=extip:$ip --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3c,personal,miner,txpool --rnetport 7100 --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir "$CHAINDB" --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr   > "$OUTPUTLOG" 2>&1 &
+   nohup $BINDIR --nat=extip:$ip --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3c,personal,miner,txpool --rnetport $RNET_PORT --port $P2P_PORT --rpcport $RPC_PORT --verbosity $LOGLEVEL --datadir $CHAINDB --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr   > "$OUTPUTLOG" 2>&1 &
 else
-   #$BINDIR -nat=extip:$ip --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3c,personal,miner,txpool --rnetport 7100 --port 6000 --rpcport 18004 --verbosity $LOGLEVEL --datadir "$CHAINDB" --networkid $NetWorkId --gcmode archive --bootnodes $bootnode_addr console
-   $BINDIR  --rnetport 7100  --nat=extip:$ip  --ws   -wsaddr="0.0.0.0" --wsorigins "*" --tps --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3,personal,miner,txpool --port 16000  --rpcport 18000 --verbosity "$LOGLEVEL" --datadir "$CHAINDB" --networkid $NetWorkId --gcmode archive --bootnodes "$bootnode_addr" console
+         $BINDIR --nat=extip:$ip --ws   -wsaddr="0.0.0.0" --wsorigins "*" --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcapi cph,web3c,personal,miner,txpool --rnetport $RNET_PORT --port $P2P_PORT --rpcport $RPC_PORT --verbosity $LOGLEVEL --datadir $CHAINDB --networkid $NetWorkId --gcmode archive --bootnodes "$bootnode_addr" console
 fi
 
